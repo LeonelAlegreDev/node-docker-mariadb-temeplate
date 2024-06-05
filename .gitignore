@@ -1,0 +1,25 @@
+# Dependencias
+/node_modules
+
+# Archivos de entorno
+.env
+
+# Directorios de logs
+logs
+*.log
+npm-debug.log*
+
+# Directorio de salida de la compilación
+/dist
+
+# Sistema de archivos OSX
+.DS_Store
+
+# Archivos de editor
+.vscode
+.idea
+*.swp
+*.swo
+
+# Otros archivos y directorios
+tmp/
