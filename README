@@ -1,0 +1,74 @@
+# Documentación del Proyecto
+
+Este proyecto es una aplicación web desarrollada con Node.js y Express, utilizando MariaDB como sistema de gestión de bases de datos. La aplicación está diseñada para ser ejecutada en contenedores Docker, facilitando así su despliegue y escalabilidad.
+
+## Estructura de Directorios
+
+La estructura de directorios del proyecto se organiza de la siguiente manera:
+
+- [`app.js`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Forganization-app%2Fapp.js%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/organization-app/app.js"): Archivo principal de la aplicación que configura el servidor Express.
+- [`docker-compose.yml`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Forganization-app%2Fdocker-compose.yml%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/organization-app/docker-compose.yml"): Archivo de Docker Compose para definir y ejecutar los servicios de la aplicación.
+- [`.env`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Forganization-app%2F.env%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/organization-app/.env"): Archivo para almacenar variables de entorno utilizadas por la aplicación y los contenedores Docker.
+- [`utils/`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Forganization-app%2Futils%2F%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/organization-app/utils/"): Directorio para funciones de utilidad que pueden ser usadas en toda la aplicación.
+- [`tests/`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Forganization-app%2Ftests%2F%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/organization-app/tests/"): Directorio que contiene los tests de la aplicación, organizados por módulos.
+- [`routes/`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Forganization-app%2Froutes%2F%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/organization-app/routes/"): Directorio para los archivos de rutas de Express, que definen los endpoints de la API.
+- [`models/`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Forganization-app%2Fmodels%2F%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/organization-app/models/"): Directorio para los modelos de datos, que representan la estructura de las tablas de la base de datos y la lógica de negocio.
+- [`middlewares/`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Forganization-app%2Fmiddlewares%2F%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/organization-app/middlewares/"): Directorio para los middlewares de Express, que pueden procesar las solicitudes antes de llegar a las rutas.
+- [`db/`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Forganization-app%2Fdb%2F%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/organization-app/db/"): Directorio que contiene scripts de configuración de la base de datos, como esquemas y migraciones.
+- [`controllers/`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Forganization-app%2Fcontrollers%2F%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/organization-app/controllers/"): Directorio para los controladores que manejan la lógica de negocio para cada ruta.
+- [`config/`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Forganization-app%2Fconfig%2F%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/organization-app/config/"): Directorio para archivos de configuración de la aplicación, como la configuración de la base de datos.
+
+## Configuración y Uso
+
+### Prerrequisitos
+
+- Docker y Docker Compose instalados en tu sistema.
+- Node.js y npm instalados para desarrollo local y pruebas.
+
+### Configuración
+
+1. **Variables de Entorno**: Configura las variables de entorno necesarias en el archivo [`.env`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Forganization-app%2F.env%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/organization-app/.env"). Esto incluye configuraciones para la base de datos y cualquier otra variable de entorno que tu aplicación necesite.
+
+2. **Docker Compose**: El archivo [`docker-compose.yml`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fworkspaces%2Forganization-app%2Fdocker-compose.yml%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "/workspaces/organization-app/docker-compose.yml") define los servicios necesarios para la aplicación, incluyendo la aplicación Node.js y la base de datos MariaDB. Asegúrate de que este archivo esté correctamente configurado para reflejar las necesidades de tu aplicación.
+
+### Ejecución
+
+Para iniciar la aplicación y la base de datos, ejecuta el siguiente comando en el directorio raíz del proyecto:
+
+```bash
+docker-compose up
+```
+
+Este comando construirá las imágenes de Docker si es necesario, y luego iniciará los contenedores definidos en `docker-compose.yml`.
+
+### Desarrollo
+
+Para el desarrollo local, puedes ejecutar la aplicación fuera de Docker utilizando Node.js directamente. Asegúrate de tener una instancia de MariaDB ejecutándose localmente o accesible para tu aplicación.
+
+```bash
+npm install
+node app.js
+```
+
+## Testing
+
+Para ejecutar los tests, asegúrate de tener las dependencias necesarias instaladas y luego ejecuta:
+
+```bash
+npm test
+```
+
+## Conectarse a la Base de Datos
+1. Acceder al contenedor de MariaDB: Primero, necesitas acceder al contenedor de Docker que está ejecutando MariaDB. Utiliza el siguiente comando en la terminal:
+
+```bash
+docker exec -it organization-app-mariadb-1 bash
+```
+
+Este comando te dará acceso a la línea de comandos dentro del contenedor organization-app-mariadb-1.
+
+2. Conectarse a la base de datos MariaDB: Una vez dentro del contenedor, puedes conectarte a la base de datos MariaDB utilizando el cliente de línea de comandos de MariaDB. Ejecuta el siguiente comando:
+
+```bash
+mariadb -u root -p
+```bash

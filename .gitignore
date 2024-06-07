@@ -3,6 +3,8 @@
 
 # Archivos de entorno
 .env
+docker-compose.yml
+/db/db-init.sql
 
 # Directorios de logs
 logs
