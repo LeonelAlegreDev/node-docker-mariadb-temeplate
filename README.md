@@ -6,17 +6,17 @@ Este proyecto es una aplicación web desarrollada con Node.js y Express, utiliza
 
 La estructura de directorios del proyecto se organiza de la siguiente manera:
 
-app.js: Archivo principal de la aplicación que configura el servidor Express.
-docker-compose.yml: Archivo de Docker Compose para definir y ejecutar los servicios de la aplicación.
-.env: Archivo para almacenar variables de entorno utilizadas por la aplicación y los contenedores Docker.
-utils/: Directorio para funciones de utilidad que pueden ser usadas en toda la aplicación.
-tests/: Directorio que contiene los tests de la aplicación, organizados por módulos.
-routes/: Directorio para los archivos de rutas de Express, que definen los endpoints de la API.
-models/: Directorio para los modelos de datos, que representan la estructura de las tablas de la base de datos y la lógica de negocio.
-middlewares/: Directorio para los middlewares de Express, que pueden procesar las solicitudes antes de llegar a las rutas.
-db/: Directorio que contiene scripts de configuración de la base de datos, como esquemas y migraciones.
-controllers/: Directorio para los controladores que manejan la lógica de negocio para cada ruta.
-config/: Directorio para archivos de configuración de la aplicación, como la configuración de la base de datos.
+- app.js: Archivo principal de la aplicación que configura el servidor Express.
+- docker-compose.yml: Archivo de Docker Compose para definir y ejecutar los servicios de la aplicación.
+- .env: Archivo para almacenar variables de entorno utilizadas por la aplicación y los contenedores Docker.
+- utils/: Directorio para funciones de utilidad que pueden ser usadas en toda la aplicación.
+- tests/: Directorio que contiene los tests de la aplicación, organizados por módulos.
+- routes/: Directorio para los archivos de rutas de Express, que definen los endpoints de la API.
+- models/: Directorio para los modelos de datos, que representan la estructura de las tablas de la base de datos y la lógica de negocio.
+- middlewares/: Directorio para los middlewares de Express, que pueden procesar las solicitudes antes de llegar a las rutas.
+- db/: Directorio que contiene scripts de configuración de la base de datos, como esquemas y migraciones.
+- controllers/: Directorio para los controladores que manejan la lógica de negocio para cada ruta.
+- config/: Directorio para archivos de configuración de la aplicación, como la configuración de la base de datos.
 
 ## Configuración y Uso
 
