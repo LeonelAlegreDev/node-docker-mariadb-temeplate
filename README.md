@@ -54,4 +54,4 @@ Este comando te dará acceso a la línea de comandos dentro del contenedor organ
 
 ```bash
 mariadb -u root -p
-```bash
+```
