@@ -40,15 +40,10 @@ dbConnect().then(() => {
         console.log(`Servidor Node.js escuchando en http://${HOST}:${PORT}`);
     });
 
-    // const query = `CREATE TABLE IF NOT EXISTS usuarios (
-    //     id INT PRIMARY KEY AUTO_INCREMENT,
-    //     nombre VARCHAR(100) NOT NULL,
-    //     email VARCHAR(100) NOT NULL UNIQUE,
-    //     password VARCHAR(100) NOT NULL
-    // )`;
     const query = "SHOW DATABASES;"
     executeQuery(query).then(result => {
         console.log('La consulta se ejecutó correctamente.');
+        console.log(result);
         // imprime el resultado
     }).catch(error => {
         console.error('Error al ejecutar el archivo usuarios.sql:', error);

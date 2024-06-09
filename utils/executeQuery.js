@@ -8,7 +8,7 @@ async function executeQuery(query) {
     let connection;
     try {
         connection = await pool.getConnection();
-        const result = await connection.query
+        const result = await connection.query(query)
         //espera a que se ejecute la consulta y cuando retorna manda el resultado
         return result;
     } catch (error) {
