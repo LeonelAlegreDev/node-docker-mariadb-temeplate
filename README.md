@@ -45,10 +45,10 @@ Este comando construirá las imágenes de Docker si es necesario, y luego inicia
 1. Acceder al contenedor de MariaDB: Primero, necesitas acceder al contenedor de Docker que está ejecutando MariaDB. Utiliza el siguiente comando en la terminal:
 
 ```bash
-docker exec -it organization-app-mariadb-1 bash
+docker exec -it node-docker-mariadb-temeplate-mariadb-1 bash
 ```
 
-Este comando te dará acceso a la línea de comandos dentro del contenedor organization-app-mariadb-1.
+Este comando te dará acceso a la línea de comandos dentro del contenedor node-docker-mariadb-temeplate-mariadb-1.
 
 2. Conectarse a la base de datos MariaDB: Una vez dentro del contenedor, puedes conectarte a la base de datos MariaDB utilizando el cliente de línea de comandos de MariaDB. Ejecuta el siguiente comando:
 

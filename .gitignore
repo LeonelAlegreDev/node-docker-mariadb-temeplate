@@ -4,8 +4,6 @@
 # Archivos de entorno
 .env
 docker-compose.yml
-/db/db-init.sql
-/utils/executeQuery.js
 
 # Directorios de logs
 logs

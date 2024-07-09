@@ -1,24 +1,15 @@
---
---  Crear tabla 'roles' 
---
 CREATE TABLE IF NOT EXISTS roles (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(255) NOT NULL
+    nombre VARCHAR(255) NOT NULL UNIQUE
 ) ENGINE=InnoDB;
 
---
---  Insertar valores 'admin' y 'empleado' en la tabla 'rol'
---
-INSERT INTO rol (nombre) VALUES ('admin'), ('empleado'), ('cliente');
+INSERT INTO roles (nombre) VALUES ('admin'), ('empleado'), ('cliente');
 
---
---  Crear tabla 'users'
---
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255) NOT NULL,
     contrasena VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
-    rol INT NOT NULL,
+    rol VARCHAR(255) NOT NULL,
     FOREIGN KEY (rol) REFERENCES roles(nombre)
 ) ENGINE=InnoDB;
