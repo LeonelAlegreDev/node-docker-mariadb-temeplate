@@ -13,14 +13,18 @@ Authorization: Bearer YOUR_ACCESS_TOKEN
   "rol": "cliente"
 }
 
+### GET Read User by ID
+GET http://localhost:3000/users/1 HTTP/1.1
+
+
 ### PUT Update User by ID
 PUT http://localhost:3000/users/1 HTTP/1.1
 Content-Type: application/json
 Authorization: Bearer YOUR_ACCESS_TOKEN
 
 {
-  "nombre": "Usuario 1 Actualizado",
-  "contrasena": "nueva_contrasena",
-  "email": "user1@email.com",
+  "nombre": "Usuario 1 New",
+  "contrasena": "new_contrasena",
+  "email": "user1.new@email.com",
   "rol": "cliente"
 }

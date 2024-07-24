@@ -45,20 +45,27 @@ class User {
         else throw new PublicError('No users found');
     }
   
-    static async getById(id) {
-    //   const query = 'SELECT * FROM clients WHERE id = ?';
-    //   const [rows] = await pool.query(query, [id]);
-    //   if (rows.length === 0) {
-    //     return null;
-    //   }
-    //   const row = rows[0];
-    //   return new Client(row.id, row.nombre_aplicacion, row.url_redireccionamiento, row.url_aplicacion, row.descripcion, row.icono, row.url_politica_privacidad, row.contacto);
+    static async GetById(id) {
+        const query = 'SELECT * FROM users WHERE id = ?';
+        const result = await pool.query(query, id);
+
+        // Valida el resultado de la consulta
+        if (result.length > 0) {
+            return new User(result[0].nombre, result[0].contrasena, result[0].email, result[0].rol);
+        }
+        else throw new PublicError('User not found');
     }
     
-    static async update(id, client) {
-    //   const query = 'UPDATE clients SET nombre_aplicacion = ?, url_redireccionamiento = ?, url_aplicacion = ?, descripcion = ?, icono = ?, url_politica_privacidad = ?, contacto = ? WHERE id = ?';
-    //   await pool.query(query, [client.nombreAplicacion, client.urlRedireccionamiento, client.urlAplicacion, client.descripcion, client.icono, client.urlPoliticaPrivacidad, client.contacto, id]);
-    //   return this.getById(id);
+    static async Update(id, user) {
+        // valida que el user no sea null y sea un objeto del tipo User
+        if (user !== null && user instanceof User) {
+            //genera la consulta para actualizar el usuario
+            const query = 'UPDATE users SET nombre = ?, contrasena = ?, email = ?, rol = ? WHERE id = ?';
+            const result = await pool.query(query, [user.nombre, user.contrasena, user.email, user.rol, id]);    
+            
+            return result.affectedRows === 1;
+        }
+        else throw new PublicError('User is required');    
     }
   
     static async delete(id) {
