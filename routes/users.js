@@ -14,4 +14,6 @@ router.get('/:id', UserController.GetById);
 // Ruta PUT User
 router.put('/:id', UserController.Update);
 
+// Ruta DELETE User by ID
+router.delete('/:id', UserController.Delete);
 module.exports = router;

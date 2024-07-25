@@ -28,3 +28,7 @@ Authorization: Bearer YOUR_ACCESS_TOKEN
   "email": "user1.new@email.com",
   "rol": "cliente"
 }
+
+### DELETE Delete User by ID
+DELETE http://localhost:3000/users/1 HTTP/1.1
+Authorization: Bearer YOUR_ACCESS_TOKEN

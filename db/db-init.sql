@@ -11,5 +11,8 @@ CREATE TABLE IF NOT EXISTS users (
     contrasena VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     rol VARCHAR(255) NOT NULL,
+    deleted_at TIMESTAMP DEFAULT NULL,
     FOREIGN KEY (rol) REFERENCES roles(nombre)
 ) ENGINE=InnoDB;
+
+INSERT INTO users (nombre, contrasena, email, rol) VALUES ('Admin 1', 'admin_pwd', 'admin1@email.com', 'admin');

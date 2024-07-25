@@ -56,9 +56,7 @@ class UserController {
     }
     
     static async Update(req, res) {
-        // Implementar la lógica para actualizar un cliente (PUT)
-
-        // Captura los parametros de la siguiente peticion en variables del mismo nombre y si no se envian se igualan a null
+        // Captura los parametros de la peticion
         const id = req.params.id ? req.params.id : null;
         const nombre = req.body.nombre ? req.body.nombre : null;
         const contrasena = req.body.contrasena ? req.body.contrasena : null;
@@ -89,6 +87,27 @@ class UserController {
             ErrorCatcher.CatchError(error, res);
         }
     }
+
+    static async Delete(req, res) {
+        // Captura el id del usuario a eliminar 
+        const id = req.params.id ? req.params.id : null;
+
+        try{
+            const user = await User.GetById(id);
+
+            // Elimina el usuario con el id especificado
+            const result = await User.Delete(id);
+
+            if(result){
+                res.status(200).json({ message: 'User deleted successfully' });
+            }
+            else throw new PublicError('Error deleting user');
+        }
+        catch (error) {
+            ErrorCatcher.CatchError(error, res);
+        }
+    }
+
   
   // ... (métodos para otras peticiones)
 }

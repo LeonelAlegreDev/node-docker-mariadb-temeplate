@@ -8,6 +8,7 @@ class User {
         this.contrasena = contrasena;
         this.email = email;
         this.rol = rol;
+        this.deleted_at = null;
         this.ValidarCampos();
     }
   
@@ -26,19 +27,16 @@ class User {
     }
 
     static async GetAll() {
-        const query = 'SELECT * FROM users;';
+        const query = "SELECT *, DATE_FORMAT(deleted_at, '%d-%m-%Y %H:%i:%s') AS da_format FROM users;";
         const rows = await pool.query(query);
     
         if (rows.length > 0) {
             // Transforma los registros en un array de objetos
             const users = rows.map(row => {
-                return {
-                    id: row.id,
-                    nombre: row.nombre,
-                    contrasena: row.contrasena,
-                    email: row.email,
-                    rol: row.rol
-                };
+                const user = new User(row.nombre, row.contrasena, row.email, row.rol);
+                user.deleted_at = row.da_format;
+                
+                return user;
             });
             return users;
         }
@@ -46,12 +44,15 @@ class User {
     }
   
     static async GetById(id) {
-        const query = 'SELECT * FROM users WHERE id = ?';
+        const query = "SELECT *, DATE_FORMAT(deleted_at, '%d-%m-%Y %H:%i:%s') AS da_format FROM users WHERE id = ?";
         const result = await pool.query(query, id);
 
         // Valida el resultado de la consulta
         if (result.length > 0) {
-            return new User(result[0].nombre, result[0].contrasena, result[0].email, result[0].rol);
+            const user = new User(result[0].nombre, result[0].contrasena, result[0].email, result[0].rol);
+            user.deleted_at = result[0].da_format;
+            
+            return user;
         }
         else throw new PublicError('User not found');
     }
@@ -68,9 +69,12 @@ class User {
         else throw new PublicError('User is required');    
     }
   
-    static async delete(id) {
-    //   const query = 'DELETE FROM clients WHERE id = ?';
-    //   await pool.query(query, [id]);
+    static async Delete(id) {
+        // Genera la consulta para eliminar el usuario
+        const query = 'Update users SET deleted_at = NOW() WHERE id = ?';
+        const result = await pool.query(query, [id]);
+
+        return result.affectedRows === 1;
     }
 
     ValidarCampos(){

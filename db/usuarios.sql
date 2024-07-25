@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS users (
     nombre VARCHAR(255) NOT NULL,
     contrasena VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
-    rol INT NOT NULL,
+    rol VARCHAR(255) NOT NULL,
+    deleted_at TIMESTAMP DEFAULT NULL,
     FOREIGN KEY (rol) REFERENCES roles(nombre)
 ) ENGINE=InnoDB;
