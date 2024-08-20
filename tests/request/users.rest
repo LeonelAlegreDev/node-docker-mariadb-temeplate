@@ -7,9 +7,9 @@ Content-Type: application/json
 Authorization: Bearer YOUR_ACCESS_TOKEN
 
 {
-  "nombre": "Usuario 1",
-  "contrasena": "contrasena",
-  "email": "user1@email.com",
+  "nombre": "Cliente 1",
+  "password": "1234",
+  "email": "cliente1@email.com",
   "rol": "cliente"
 }
 
@@ -23,12 +23,18 @@ Content-Type: application/json
 Authorization: Bearer YOUR_ACCESS_TOKEN
 
 {
-  "nombre": "Usuario 1 New",
+  "nombre": "Admin 1 New",
   "contrasena": "new_contrasena",
-  "email": "user1.new@email.com",
-  "rol": "cliente"
+  "email": "admin1@email.com",
+  "rol": "admin"
 }
 
 ### DELETE Delete User by ID
 DELETE http://localhost:3000/users/1 HTTP/1.1
 Authorization: Bearer YOUR_ACCESS_TOKEN
+
+### GET Read User by Email
+GET http://localhost:3000/users?email=admin1@email.com HTTP/1.1
+
+### GET Read Deleted Users
+GET http://localhost:3000/users?deleted=true HTTP/1.1

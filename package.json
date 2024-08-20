@@ -1,12 +1,13 @@
 {
-  "name": "cms-app",
+  "name": "node-docker-mariadb-template",
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "prod": "pm2 start app.js --name cms-app"
+    "prod": "pm2 start app.js --name cms-app",
+    "genpwd": "node ./utils/generateKeypar.js"
   },
   "keywords": [],
   "author": "",
@@ -14,9 +15,11 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jest": "^29.7.0",
+    "jsonwebtoken": "^9.0.2",
     "mariadb": "^3.3.1"
   },
   "devDependencies": {

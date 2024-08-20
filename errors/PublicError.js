@@ -3,7 +3,7 @@ class PublicError extends Error {
     super(message);
     this.name = 'PublicError'; // Set the error name for identification
     this.data = data ? data : null;
-    this.status = status ? status : 400;
+    this.status = status ? status : 500;
   }
 }
 module.exports = { PublicError };
