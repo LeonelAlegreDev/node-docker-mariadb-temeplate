@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "prod": "pm2 start app.js --name cms-app",
+    "prod": "pm2 start app.js --name node-docker-mariadb-template",
     "genpwd": "node ./utils/generateKeypar.js"
   },
   "keywords": [],

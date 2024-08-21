@@ -41,7 +41,7 @@ docker-compose up
 
 Este comando construirá las imágenes de Docker si es necesario, y luego iniciará los contenedores definidos en `docker-compose.yml`.
 
-## Conectarse a la Base de Datos
+## Comprobar conexion a la base de datos
 1. Acceder al contenedor de MariaDB: Primero, necesitas acceder al contenedor de Docker que está ejecutando MariaDB. Utiliza el siguiente comando en la terminal:
 
 ```bash
@@ -54,4 +54,33 @@ Este comando te dará acceso a la línea de comandos dentro del contenedor node-
 
 ```bash
 mariadb -u root -p
+```
+
+## Inicializar Aplicacion
+1. Primero es necesario instalar las dependencias de la aplicacion:
+
+```bash
+npm i
+```
+
+2. Luego hay que crear un par de llaves, una publica y otra privada con los nombres id_rsa_pub.pem y id_rsa_priv.pem, respectivamente y se almacenan en el directorio config:
+
+```bash
+npm run genpwd
+```
+
+Sin este par de llaves la aplicacion no podra procesar las peticiones que requieran de autorizacion o validacion de identidad.
+
+3. Para ejecutar la aplicacion de backend tenemos varias opciones.
+
+El siguiente comando ejecuta la aplicacion en modo de desarrollo usando nodemon:
+
+```bash
+npm run dev
+```
+
+El siguiente comando ejecuta la aplicacion en modo de produccion usando pm2:
+
+```bash
+npm run prod
 ```
